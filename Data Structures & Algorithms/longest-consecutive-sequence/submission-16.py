@@ -1,0 +1,16 @@
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        kmax=1
+        current=1
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                continue
+            elif nums[i] == nums[i - 1] + 1:
+                current += 1
+            else:
+                longest = max(kmax, current)
+                current = 1
+
+        return max(kmax, current)
+        
+        
